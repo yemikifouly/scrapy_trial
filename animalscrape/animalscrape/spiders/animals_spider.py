@@ -16,10 +16,10 @@ class AnimalsSpider(scrapy.Spider):
         animals['letters'] = {}
         
         # Iterate over all the rows of the table of animals
-        for post in response.css('div.tab table.names tr'):
+        for animal in response.css('div.tab table.names tr'):
         
             # Get the names and the species (the first link is the name, the second the species)
-            common_name, genus_species = post.css('a::text')[0].get(), post.css('a::text')[1].get()
+            common_name, genus_species = animal.css('a::text')[0].get(), animal.css('a::text')[1].get()
             
             # ------- The scraping happens above. Everything below is getting the data into a dict ------
             
